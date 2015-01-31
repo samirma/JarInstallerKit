@@ -14,7 +14,7 @@ public class JavaRegistryHack {
     private static final int KEY_SET_VALUE = 2;
     private static final int KEY_READ = 0x20019;
     
-    static private String REG_RUN = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
+    private static final String REG_RUN = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
 
     public static void addWindowRegister() {
         // Create a key  
