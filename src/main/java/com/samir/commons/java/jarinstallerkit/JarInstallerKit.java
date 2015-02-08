@@ -12,9 +12,6 @@ import java.util.logging.Logger;
  */
 public class JarInstallerKit {
 
-    public static final String CURRENT_PATH = System
-            .getProperty("java.class.path");
-
     public static final Logger LOGGER = Logger.getLogger(JarInstallerKit.class.getName());
 
 

@@ -29,13 +29,7 @@ public class JavaRegistryHack {
         //Write a value  
         RegUtil.RegSetValueEx(handle, Constants.SERVICE_NAME, Constants.FINAL_APP);
         //Read the value  
-//        byte[] val = RegUtil.RegQueryValueEx(handle, "TestName");
-        //Check the value  
-//        System.out.println(new String(val).toString().trim());
-        // Close the handle  
-        //delete the value  
-//        RegUtil.RegDeleteKey(RegUtil.HKEY_LOCAL_MACHINE, "SOFTWARE\\SnipCode\\regutil");
-//        RegUtil.RegDeleteKey(RegUtil.HKEY_LOCAL_MACHINE, "SOFTWARE\\SnipCode");
+
     }
     
     public static void removeWindowRegister() {

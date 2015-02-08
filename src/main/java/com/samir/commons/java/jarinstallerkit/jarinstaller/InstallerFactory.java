@@ -5,6 +5,7 @@
  */
 package com.samir.commons.java.jarinstallerkit.jarinstaller;
 
+import com.samir.commons.java.jarinstallerkit.linux.JarLinuxInstaller;
 import com.samir.commons.java.jarinstallerkit.windows.JarWindowsInstaller;
 
 /**
@@ -19,16 +20,22 @@ public class InstallerFactory {
     }
 
     static public JarInstaller getJarInstaller() {
-        
+
         JarInstaller jarInstaller = null;
-        
+
         if (isWindows()) {
             jarInstaller = new JarWindowsInstaller();
+        } else if (isLinux()) {
+            jarInstaller = new JarLinuxInstaller();
         }
-        
+
         return jarInstaller;
     }
 
-
+    public static boolean isLinux() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        final boolean contains = osName.contains("linux");
+        return contains;
+    }
 
 }

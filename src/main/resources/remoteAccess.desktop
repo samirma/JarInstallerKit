@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ItrustMyNetwork
+GenericName=ITN
+Comment=ItrustMyNetwork
+Exec=java -jar #jarInstaller#
+Terminal=false
+Type=Application
+Icon=dropbox
+Categories=Network;FileTransfer;
+StartupNotify=false
