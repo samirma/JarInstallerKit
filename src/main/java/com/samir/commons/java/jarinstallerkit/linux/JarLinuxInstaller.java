@@ -47,4 +47,9 @@ public class JarLinuxInstaller extends JarInstaller {
         return String.format("%s%s%s", HOME_PATH, AUTO_START_PATH, JAR_DESKTOP_INSTALLER_FILE);
     }
 
+    @Override
+    public String getCommand(String path, String param) {
+        return String.format("java -jar %s %s", path, param);
+    }
+
 }

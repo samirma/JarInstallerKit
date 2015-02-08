@@ -9,6 +9,7 @@ import com.samir.commons.java.jarinstallerkit.Constants;
 import com.samir.commons.java.jarinstallerkit.serviceComunicator.ServiceCommunicator;
 import com.samir.commons.java.jarinstallerkit.serviceComunicator.ServiceCommunicatorFactory;
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -74,20 +75,15 @@ public abstract class JarInstaller {
             }
         } catch (Exception e) {
         }
-        
+
     }
 
     public void doInstallLifeCycle(final String[] args) throws Exception {
-        Runtime runtime = Runtime.getRuntime();
+
         if (args.length == 0) {
             moveFile(CURRENT_PATH, Constants.FINAL_APP_TMP);
-            final String pathExec = "java -jar \"" + Constants.FINAL_APP_TMP + "\" tmp";
-            runtime.exec(pathExec);
+            final String pathExec = runCommandAsync(Constants.FINAL_APP_TMP, CMD_TMP);
             LOGGER.log(Level.INFO, pathExec);
-            JOptionPane.showMessageDialog(null,
-                    "args.length == 0",
-                    "test",
-                    JOptionPane.WARNING_MESSAGE);
             System.exit(0);
         } else {
             final String firstArg = args[0];
@@ -95,25 +91,27 @@ public abstract class JarInstaller {
                 switch (firstArg) {
                     case CMD_TMP:
                         moveFile(Constants.CURRENT_PATH, Constants.FINAL_APP);
-                        final String pathExec = "java -jar \"" + Constants.FINAL_APP + "\" init";
-                        runtime.exec(pathExec);
+                        final String pathExec = runCommandAsync(Constants.FINAL_APP, CMD_INIT);
                         LOGGER.log(Level.INFO, pathExec);
-                        JOptionPane.showMessageDialog(null,
-                                "args == tmp",
-                                "test",
-                                JOptionPane.WARNING_MESSAGE);
                         System.exit(0);
                     case CMD_INIT:
                         LOGGER.log(Level.INFO, "init");
-                        JOptionPane.showMessageDialog(null,
-                                "args == init",
-                                "test",
-                                JOptionPane.WARNING_MESSAGE);
                         setupBootRegister();
                         break;
                 }
             }
         }
+    }
+
+    public String runCommandAsync(String path, String param) throws IOException {
+        Runtime runtime = Runtime.getRuntime();
+        final String pathExec = getCommand(path, param);
+        runtime.exec(pathExec);
+        return pathExec;
+    }
+
+    public String getCommand(String path, String param) {
+        return String.format("java -jar \"%s\" %s", path, param);
     }
 
     public abstract void setupBootRegister();
