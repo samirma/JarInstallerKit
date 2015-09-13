@@ -33,7 +33,7 @@ public class Constants {
 		if (INSTALL_DIR == null) {
 			String fileSeparador = System.getProperty("file.separator");
 			String homeDir = getHome() + fileSeparador;
-			dir = System.getenv().get(PROGRAM_FILES) + fileSeparador;
+			dir = System.getenv().get(PROGRAM_FILES);
 			File program = new File(dir);
 			
 			if (program.canWrite()) {

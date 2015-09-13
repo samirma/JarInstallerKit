@@ -8,7 +8,7 @@ import com.samir.commons.java.jarinstallerkit.Constants;
 
 
 public class JavaRegistryHack {
-
+    
     private static final int HKEY_CURRENT_USER = 0x80000001;
     private static final int KEY_QUERY_VALUE = 1;
     private static final int KEY_SET_VALUE = 2;
@@ -29,7 +29,7 @@ public class JavaRegistryHack {
         //Write a value  
         RegUtil.RegSetValueEx(handle, Constants.SERVICE_NAME, Constants.FINAL_APP);
         //Read the value  
-
+        
     }
     
     public static void removeWindowRegister() {
