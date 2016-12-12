@@ -8,5 +8,22 @@ in your main method inside your jar-with-dependencies.jar just include this:
             ...
     }
 
-After that every time that your jar run it will copy it self for the computer and it will run as a service when the computer boot
+After that, every time that your jar run it will copy itself to the computer and it will run as a service when the computer boot
+
+
+How to install:
+mvn install
+
+Add the maven dependency
+
+        <dependency>
+            <groupId>com.samir.commons.java.JarInstallerKit</groupId>
+            <artifactId>JarInstallerKit</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+Execute in order to run your app manualy
+java -jar your_project.jar init
+
 
