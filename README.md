@@ -23,7 +23,7 @@ Add the maven dependency
         </dependency>
 
 
-Execute in order to run your app manualy
+Execute with "init" param in order to run your app manually:
 java -jar your_project.jar init
 
 
